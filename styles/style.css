@@ -1,0 +1,32 @@
+#camera {
+    position: relative;
+    height: 480px;
+}
+
+#snap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 320px;
+}
+
+.img_initial {
+    width: 320px;
+    height: 240px;
+    display: none;
+}
+
+.display_none {
+    display: none;
+}
+
+#table {
+    position: relative;
+}
+
+
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
