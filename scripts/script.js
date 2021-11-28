@@ -158,7 +158,6 @@ function settiming() {
               video.muted = true;
               video.autoplay = true;
               document.getElementById('camera').append(video);
-              webview.allowsInlineMediaPlayback = true;
               ctx = new AudioContext();
               source = ctx.createMediaStreamSource(stream);
               (analyser = ctx.createAnalyser()), (processor = ctx.createScriptProcessor(1024, 1, 1));
