@@ -69,6 +69,7 @@ function settiming() {
     video.src = URL.createObjectURL(selectedFile);
     video.autoplay = true;
     video.muted = false;
+    video.playsinline = true;
     document.getElementById('camera').append(video);
     ctx = new AudioContext();
     source = ctx.createMediaElementSource(video);
