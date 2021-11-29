@@ -1,4 +1,3 @@
-t0 = performance.now();
 (function() {
   var script = document.createElement('script');
   script.onload = function() {
@@ -24,7 +23,6 @@ t0 = performance.now();
 })();
 
 console.log(navigator.hardwareConcurrency)
-
 let video;
 let k = 6000;
 let webcamStream;
@@ -299,6 +297,7 @@ function pause(milliseconds) {
 
 //получение стоп-кадра с видео потока
 function snapshot() {
+    ts = performance.now();
     let canvas = document.createElement('canvas');
     document.body.appendChild(canvas);
     canvas.width = video.videoWidth;
@@ -315,9 +314,10 @@ function snapshot() {
       stats.update();
       requestAnimationFrame(rAFloop);
     });
-    t1 = performance.now();
-    console.log(t1 - t0, 'milliseconds');
-    t0 = performance.now();
+    ts = performance.now() - ts;
+    time_of_snap.push(ts);
+    data_of_ram.push(performance.memory.usedJSHeapSize / (1024*1024));
+    size_of_page.push(document.documentElement.innerHTML.length / (1024 * 1024));
     return canvas;
 }
 
@@ -435,7 +435,7 @@ function appendPicRow(data) {
     let table = document.getElementById('pic_tbl');
 
     if (table.rows.length == 2) table.deleteRow(1);
-
+    imageAppendarray(data.quo,data.brit,data.blur);
     newRow.append(quo, brit, blur);
     table.append(newRow);
 }
@@ -498,6 +498,7 @@ function appendSoundRow(data) {
     if (table.rows.length == 2) table.deleteRow(1);
 
     newRow.append(quo, loud, th);
+    addtoArrayssound(data.quo, data.loud, data.thdn);
     table.append(newRow);
 }
 
