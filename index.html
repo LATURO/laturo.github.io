@@ -41,7 +41,7 @@
         <input class="col form-control" id="info" type="textbox" value="Интервал: 6 секунд" disabled="disabled">
         <input class="col form-control w-50" type="file" id="drop" onchange="videoplayer()" multiple accept="video/*">
         <input type="button" class="col btn btn-danger" value="Сброс" onclick="location.reload()">
-        <input  type="button" class="col btn btn-warning" id="ggg" value="ВКЛ Safari" onclick="video.play()">
+        <input  type="button" class="col btn btn-warning" id="safari_button" value="ВКЛ Safari" onclick="video.play()" disabled="disabled">
         <input  type="button" class="col btn btn-dark" value="Export_log" onclick="log_export()">
       </div>
       </div>
@@ -49,6 +49,10 @@
         <div class= "container px-4">
         <div class = "row gx-5" id="table"></div></div>
         <script>
+        if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0)
+        {
+           document.getElementById("safari_button").removeAttribute("disabled");
+        }
 
         	// add the monitor into our page and update it on a rAF loop
 

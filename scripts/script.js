@@ -22,10 +22,6 @@
   document.head.appendChild(script);
 })();
 
-if (navigator.userAgent.search("Safari") <= 0 && navigator.userAgent.search("Chrome") > 0)
-{
-   document.getElementById('ggg').setAttribute('enabled','enabled');
-}
 
 console.log(navigator.hardwareConcurrency)
 let video;
